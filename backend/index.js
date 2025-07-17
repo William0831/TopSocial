@@ -1,15 +1,18 @@
 // npm i express json-server cors axios
 // npm i nodemon concurrently -D
 
-
 const express = require('express');
 const cors = require('cors');
 //浏览器的安全机制，用于允许不同“源”之间访问资源
+const router = require('./routes/index')
 
 
 const app = express();
 const PORT = 80;
 
+app.use(cors());
+
+app.use('/api',router)
 
 
 app.listen(PORT,function(){
